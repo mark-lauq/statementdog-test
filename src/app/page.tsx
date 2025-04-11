@@ -1,9 +1,12 @@
-import Button from '@mui/material/Button';
+import Box from "@mui/material/Box";
 
 export default function Home() {
   return (
-    <div>
-      <Button variant="contained">Hello world</Button>
-    </div>
+    <Box
+      component="section"
+      sx={{ p: 2, border: "1px dashed grey", textAlign: "center" }}
+    >
+      StatementDog Test
+    </Box>
   );
 }
