@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
+import Container from "@mui/material/Container";
 import Header from "@/components/Header";
 import theme from "@/theme";
 
@@ -36,7 +37,9 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <Header />
-            {children}
+            <Container component="main" sx={{ marginTop: "80px" }}>
+              {children}
+            </Container>
           </ThemeProvider>
         </AppRouterCacheProvider>
       </body>
