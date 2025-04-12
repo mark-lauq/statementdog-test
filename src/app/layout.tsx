@@ -37,7 +37,7 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <Header />
-            <Container component="main" sx={{ marginTop: "80px" }}>
+            <Container component="main" sx={{ marginTop: "70px" }}>
               {children}
             </Container>
           </ThemeProvider>
