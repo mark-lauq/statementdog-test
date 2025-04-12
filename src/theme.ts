@@ -23,4 +23,7 @@ export default createTheme({
       "sans-serif",
     ].join(","),
   },
+  palette: {
+    background: { default: "rgb(237, 237, 237)" },
+  },
 });

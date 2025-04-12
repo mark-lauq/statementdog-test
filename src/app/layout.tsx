@@ -5,7 +5,7 @@ import { ThemeProvider } from "@mui/material/styles";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
-import Header from "@/components/Header";
+import CssBaseline from "@mui/material/CssBaseline";
 import theme from "@/theme";
 
 const PingFangTC = localFont({
@@ -64,8 +64,8 @@ export default function RootLayout({
         <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
-            <Header />
-            <Container component="main" sx={{ marginTop: "70px" }}>
+            <CssBaseline />
+            <Container component="main" sx={{ marginTop: "20px" }}>
               <Stack direction="column" spacing={2}>
                 {stockInfo}
                 {stockTable}
