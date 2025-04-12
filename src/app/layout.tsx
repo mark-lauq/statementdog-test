@@ -23,11 +23,12 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({
-  children,
   stockInfo,
+  stockTable,
 }: Readonly<{
   children: React.ReactNode;
   stockInfo: React.ReactNode;
+  stockTable: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -43,7 +44,7 @@ export default function RootLayout({
             <Container component="main" sx={{ marginTop: "70px" }}>
               <Stack direction="column" spacing={2}>
                 {stockInfo}
-                {children}
+                {stockTable}
               </Stack>
             </Container>
           </ThemeProvider>
