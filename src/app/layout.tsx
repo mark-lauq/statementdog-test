@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import localFont from "next/font/local";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
@@ -8,14 +8,34 @@ import Stack from "@mui/material/Stack";
 import Header from "@/components/Header";
 import theme from "@/theme";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+const PingFangTC = localFont({
+  display: "swap",
+  src: [
+    {
+      path: "../fonts/PingFangTC-Thin.otf",
+      weight: "100",
+    },
+    {
+      path: "../fonts/PingFangTC-Ultralight.otf",
+      weight: "200",
+    },
+    {
+      path: "../fonts/PingFangTC-Light.otf",
+      weight: "300",
+    },
+    {
+      path: "../fonts/PingFangTC-Regular.otf",
+      weight: "400",
+    },
+    {
+      path: "../fonts/PingFangTC-Medium.otf",
+      weight: "500",
+    },
+    {
+      path: "../fonts/PingFangTC-Semibold.otf",
+      weight: "600",
+    },
+  ],
 });
 
 export const metadata: Metadata = {
@@ -31,8 +51,12 @@ export default function RootLayout({
   stockTable: React.ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
+    <html
+      lang="en"
+      className={`${PingFangTC.className}`}
+      suppressHydrationWarning
+    >
+      <body>
         {/**
          * Preventing SSR flickering
          * https://mui.com/material-ui/customization/css-theme-variables/configuration/#preventing-ssr-flickering

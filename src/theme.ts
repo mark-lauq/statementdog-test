@@ -14,4 +14,13 @@ export default createTheme({
     // https://mui.com/material-ui/customization/dark-mode/#dark-mode-flicker
     colorSchemeSelector: "class",
   },
+  typography: {
+    fontFamily: [
+      "PingFangTC",
+      "PingFangTC Fallback",
+      "Helvetica",
+      "Arial",
+      "sans-serif",
+    ].join(","),
+  },
 });
