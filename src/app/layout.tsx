@@ -4,6 +4,7 @@ import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
 import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import Container from "@mui/material/Container";
+import Stack from "@mui/material/Stack";
 import Header from "@/components/Header";
 import theme from "@/theme";
 
@@ -23,8 +24,10 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
+  stockInfo,
 }: Readonly<{
   children: React.ReactNode;
+  stockInfo: React.ReactNode;
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
@@ -38,7 +41,10 @@ export default function RootLayout({
           <ThemeProvider theme={theme}>
             <Header />
             <Container component="main" sx={{ marginTop: "70px" }}>
-              {children}
+              <Stack direction="column" spacing={2}>
+                {stockInfo}
+                {children}
+              </Stack>
             </Container>
           </ThemeProvider>
         </AppRouterCacheProvider>
