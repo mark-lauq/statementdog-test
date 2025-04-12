@@ -1,6 +1,6 @@
 "use client";
 
-import { memo, type ChangeEvent } from "react";
+import type { ChangeEvent } from "react";
 import {
   FormControl,
   FormControlLabel,
@@ -15,7 +15,7 @@ enum Mode {
   Dark = "dark",
 }
 
-export default memo(function ThemeToggle() {
+export default function ThemeToggle() {
   const { mode, setMode } = useColorScheme();
 
   if (!mode) {
@@ -46,4 +46,4 @@ export default memo(function ThemeToggle() {
       </RadioGroup>
     </FormControl>
   );
-});
+}
