@@ -14,3 +14,13 @@ export function getRecentDateString({ year }: { year: number }): string {
     String(date.getDate()).padStart(2, "0"),
   ].join("-");
 }
+
+/**
+ * Format revenue
+ *
+ * @param revenue number
+ * @returns `xxx,xxx,xxx.xx`
+ */
+export function formatRevenue(revenue: number): string {
+  return new Intl.NumberFormat("en-US").format(Number(revenue.toFixed(2)));
+}
