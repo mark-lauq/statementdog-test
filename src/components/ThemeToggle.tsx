@@ -2,7 +2,6 @@
 
 import { memo, type ChangeEvent } from "react";
 import {
-  Stack,
   FormControl,
   FormControlLabel,
   RadioGroup,
@@ -10,7 +9,11 @@ import {
   useColorScheme,
 } from "@mui/material";
 
-type Mode = "system" | "light" | "dark";
+enum Mode {
+  System = "system",
+  Light = "light",
+  Dark = "dark",
+}
 
 export default memo(function ThemeToggle() {
   const { mode, setMode } = useColorScheme();
@@ -25,32 +28,22 @@ export default memo(function ThemeToggle() {
 
   return (
     <FormControl>
-      <Stack direction="row" spacing={3} sx={{ alignItems: "center" }}>
-        <strong>Theme:</strong>
-        <RadioGroup
-          row
-          aria-labelledby="theme-toggle"
-          name="theme-toggle"
-          value={mode}
-          onChange={handleChange}
-        >
+      <RadioGroup
+        row
+        aria-labelledby="theme-toggle"
+        name="theme-toggle"
+        value={mode}
+        onChange={handleChange}
+      >
+        {Object.keys(Mode).map((label) => (
           <FormControlLabel
-            label="System"
-            value="system"
+            key={label}
+            label={label}
+            value={Mode[label as keyof typeof Mode]}
             control={<Radio color="warning" />}
           />
-          <FormControlLabel
-            label="Light"
-            value="light"
-            control={<Radio color="warning" />}
-          />
-          <FormControlLabel
-            label="Dark"
-            value="dark"
-            control={<Radio color="warning" />}
-          />
-        </RadioGroup>
-      </Stack>
+        ))}
+      </RadioGroup>
     </FormControl>
   );
 });
