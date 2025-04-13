@@ -7,9 +7,33 @@ export default function StockTableLayout({
   children: ReactNode;
 }) {
   return (
-    <Paper>
-      <Tabs value="table" sx={{ padding: "0px 15px 10px" }}>
-        <Tab label="详细数据" value="table" />
+    <Paper sx={{ padding: "20px 0" }}>
+      <Tabs
+        value="table"
+        sx={{
+          padding: "0 20px",
+          marginBottom: "20px",
+          minHeight: "auto",
+          "& .MuiTabs-indicator": {
+            display: "none",
+          },
+        }}
+      >
+        <Tab
+          disableRipple
+          label="详细数据"
+          value="table"
+          sx={{
+            "&.Mui-selected": {
+              backgroundColor: "primary.main",
+              color: "#FFF",
+              borderRadius: "3px",
+              padding: "10px 16px",
+              fontSize: "13px",
+              minHeight: "auto",
+            },
+          }}
+        />
       </Tabs>
       {children}
     </Paper>
