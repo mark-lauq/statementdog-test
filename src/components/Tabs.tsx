@@ -1,7 +1,11 @@
-import type { ReactNode } from "react";
+import { memo, type ReactNode } from "react";
 import { Tabs, Tab } from "@mui/material";
 
-export function CustomTab({ label }: { label: ReactNode }) {
+export const CustomTab = memo(function CustomTab({
+  label,
+}: {
+  label: ReactNode;
+}) {
   return (
     <Tab
       label={label}
@@ -18,9 +22,13 @@ export function CustomTab({ label }: { label: ReactNode }) {
       }}
     />
   );
-}
+});
 
-export function CustomTabs({ children }: { children: ReactNode }) {
+export const CustomTabs = memo(function CustomTabs({
+  children,
+}: {
+  children: ReactNode;
+}) {
   return (
     <Tabs
       sx={{
@@ -35,4 +43,4 @@ export function CustomTabs({ children }: { children: ReactNode }) {
       {children}
     </Tabs>
   );
-}
+});
