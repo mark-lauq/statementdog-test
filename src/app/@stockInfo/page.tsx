@@ -1,6 +1,6 @@
 import { Card, CardHeader } from "@mui/material";
 
-export default function StockInfo() {
+export default function StockInfoPage() {
   return (
     <Card>
       <CardHeader
