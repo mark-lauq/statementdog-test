@@ -33,7 +33,5 @@ export function formatRevenue(revenue: number): string {
  */
 
 export function formatDateString(dateString: string): string {
-  const [yyyy, mm] = dateString.split("-");
-
-  return yyyy + mm;
+  return dateString.replace("-", "").slice(0, 6);
 }
