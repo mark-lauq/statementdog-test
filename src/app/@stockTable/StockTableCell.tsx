@@ -1,3 +1,5 @@
+"use client";
+
 import { memo, type ReactNode } from "react";
 import TableCell from "@mui/material/TableCell";
 
