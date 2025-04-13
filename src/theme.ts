@@ -28,5 +28,8 @@ export default createTheme({
       main: "#0386F4",
     },
     background: { default: "rgb(237, 237, 237)" },
+    text: { 
+      primary: '#434343'
+    }
   },
 });
