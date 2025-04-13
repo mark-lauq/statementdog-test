@@ -1,11 +1,5 @@
-import { Card, CardContent, Typography } from "@mui/material";
+import Loading from "@/components/Loading";
 
-export default function LoadingStockTable() {
-  return (
-    <Card>
-      <CardContent sx={{ textAlign: "center" }}>
-        <Typography variant="overline">Stock Table loading...</Typography>
-      </CardContent>
-    </Card>
-  );
+export default function StockTableLoading() {
+  return <Loading>Stock Table loading...</Loading>;
 }
