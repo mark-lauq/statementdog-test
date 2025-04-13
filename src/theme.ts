@@ -24,6 +24,9 @@ export default createTheme({
     ].join(","),
   },
   palette: {
+    primary: {
+      main: "#0386F4",
+    },
     background: { default: "rgb(237, 237, 237)" },
   },
 });
