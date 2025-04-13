@@ -1,8 +1,7 @@
 "use client";
 
-import { useMemo, useRef, useEffect } from "react";
+import { useMemo, useRef, useEffect, memo } from "react";
 import {
-  Paper,
   TableContainer,
   Table,
   TableBody,
@@ -41,7 +40,7 @@ function calculateRate({
     : "";
 }
 
-export default function StockTableContainer({ data }: { data: Data[] }) {
+export default memo(function StockTableContainer({ data }: { data: Data[] }) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
   const [dates, revenues, rates] = useMemo(() => {
     const dates: string[] = [];
@@ -74,14 +73,7 @@ export default function StockTableContainer({ data }: { data: Data[] }) {
   }, [tableContainerRef]);
 
   return (
-    <TableContainer
-      ref={tableContainerRef}
-      component={Paper}
-      sx={{
-        borderTopLeftRadius: 0,
-        borderTopRightRadius: 0,
-      }}
-    >
+    <TableContainer ref={tableContainerRef}>
       <Table
         aria-label="stock table"
         sx={{
@@ -94,7 +86,7 @@ export default function StockTableContainer({ data }: { data: Data[] }) {
           },
           // Styled table cell border
           "& .MuiTableCell-root": {
-            borderLeft: "1px solid primary.main",
+            borderLeft: "1px solid #DCDFE2",
           },
           "& .MuiTableRow-root:first-child .MuiTableCell-root": {
             borderTop: "1px solid #DCDFE2",
@@ -142,4 +134,4 @@ export default function StockTableContainer({ data }: { data: Data[] }) {
       </Table>
     </TableContainer>
   );
-}
+});
