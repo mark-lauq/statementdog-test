@@ -30,6 +30,7 @@ export default function StockTableLayout({
               borderRadius: "3px",
               padding: "10px 16px",
               fontSize: "13px",
+              fontWeight: 600,
               minHeight: "auto",
             },
           }}
