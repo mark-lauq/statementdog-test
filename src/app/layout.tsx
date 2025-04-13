@@ -44,10 +44,12 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   stockInfo,
+  stockChart,
   stockTable,
 }: Readonly<{
   children: React.ReactNode;
   stockInfo: React.ReactNode;
+  stockChart: React.ReactNode;
   stockTable: React.ReactNode;
 }>) {
   return (
@@ -68,6 +70,7 @@ export default function RootLayout({
             <Container component="main" sx={{ marginTop: "20px" }}>
               <Stack direction="column" spacing={2}>
                 {stockInfo}
+                {stockChart}
                 {stockTable}
               </Stack>
             </Container>
