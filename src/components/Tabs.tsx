@@ -31,6 +31,7 @@ export const CustomTabs = memo(function CustomTabs({
 }) {
   return (
     <Tabs
+      value={0}
       sx={{
         padding: "0 20px",
         marginBottom: "20px",
