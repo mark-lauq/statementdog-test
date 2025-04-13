@@ -16,11 +16,24 @@ export function getRecentDateString({ year }: { year: number }): string {
 }
 
 /**
- * Format revenue
+ * Format revenue number to string with comma
  *
  * @param revenue number
- * @returns `xxx,xxx,xxx.xx`
+ * @returns string with comma
  */
 export function formatRevenue(revenue: number): string {
   return new Intl.NumberFormat("en-US").format(Number(revenue.toFixed(2)));
+}
+
+/**
+ * Format date string to YYYYMM
+ *
+ * @param dateString `YYYY-MM-DD`
+ * @returns `YYYYMM`
+ */
+
+export function formatDateString(dateString: string): string {
+  const [yyyy, mm] = dateString.split("-");
+
+  return yyyy + mm;
 }

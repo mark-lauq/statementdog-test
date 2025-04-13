@@ -8,7 +8,7 @@ import {
   TableRow,
   TableCell,
 } from "@mui/material";
-import { formatRevenue } from "@/utils";
+import { formatDateString, formatRevenue } from "@/utils";
 import type { Data } from "./api";
 import StockTableCell from "./StockTableCell";
 
@@ -48,7 +48,7 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
     const rates: string[] = [];
 
     for (const { date, revenue } of data) {
-      dates.push(date);
+      dates.push(formatDateString(date));
       revenues.push(formatRevenue(revenue));
       rates.push(calculateRate({ data, date, revenue }));
     }
