@@ -3,33 +3,13 @@ import {
   Paper,
   TableContainer,
   Table,
-  TableHead,
   TableBody,
   TableRow,
   TableCell,
 } from "@mui/material";
-import { getRecentDateString, formatRevenue } from "@/utils";
+import { formatRevenue } from "@/utils";
 import StockTableCell from "@/components/StockTableCell";
-
-interface Data {
-  date: string;
-  revenue: number;
-}
-
-const { API_URL, API_TOKEN, DATASET, DATA_ID } = process.env;
-
-const searchParams = new URLSearchParams({
-  token: API_TOKEN!,
-  dataset: DATASET!,
-  data_id: DATA_ID!,
-  start_date: getRecentDateString({ year: 6 }),
-});
-
-async function getData() {
-  const response = await fetch(`${API_URL}?${searchParams.toString()}`);
-  const { data } = (await response.json()) as { data: Data[] };
-  return data;
-}
+import { getData, type Data } from "./api";
 
 /**
  * 计算单月营收年增率
@@ -79,21 +59,44 @@ const StockTableContainer = memo(function StockTableContainer({
   }, [data]);
 
   return (
-    <TableContainer component={Paper}>
+    <TableContainer
+      component={Paper}
+      sx={{
+        borderTopLeftRadius: 0,
+        borderTopRightRadius: 0,
+      }}
+    >
       <Table
         aria-label="stock table"
         sx={{
-          // Styled odd table row
-          "& .MuiTableRow-root:last-child": {
-            backgroundColor: "action.hover",
+          // Styled table row
+          "& .MuiTableRow-root:nth-of-type(even)": {
+            backgroundColor: "#FFF",
           },
-          // Styled table border
+          "& .MuiTableRow-root:nth-of-type(odd)": {
+            backgroundColor: "#F6F8FA",
+          },
+          // Styled table cell border
           "& .MuiTableCell-root": {
-            border: "1px solid rgba(224, 224, 224, 1)",
+            borderLeft: "1px solid primary.main",
+          },
+          "& .MuiTableRow-root:first-child .MuiTableCell-root": {
+            borderTop: "1px solid #DCDFE2",
+          },
+          // Make first column sticky
+          "& .MuiTableCell-root:first-of-type": {
+            position: "sticky",
+            left: 0,
+            zIndex: 1,
+            backgroundColor: "inherit",
+            display: "block",
+            marginRight: "6px",
+            borderLeft: 0,
+            borderRight: "1px solid #DCDFE2",
           },
         }}
       >
-        <TableHead>
+        <TableBody>
           <TableRow>
             <TableCell sx={{ minWidth: 60 }}>
               <strong>年度月份</strong>
@@ -102,8 +105,6 @@ const StockTableContainer = memo(function StockTableContainer({
               <StockTableCell key={date}>{date}</StockTableCell>
             ))}
           </TableRow>
-        </TableHead>
-        <TableBody>
           <TableRow>
             <TableCell sx={{ minWidth: 60 }}>
               <strong>每月营收</strong>
@@ -113,7 +114,7 @@ const StockTableContainer = memo(function StockTableContainer({
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ minWidth: 130 }}>
+            <TableCell sx={{ minWidth: 160 }}>
               <strong>单月营收年增率 (%)</strong>
             </TableCell>
             {rates.map((rate, idx) => (
