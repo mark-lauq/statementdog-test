@@ -2,6 +2,10 @@
 
 import { createTheme } from "@mui/material";
 
+enum Primary {
+  Main = "#0386F4",
+}
+
 /**
  * MUI theme configuration
  */
@@ -25,11 +29,38 @@ export default createTheme({
   },
   palette: {
     primary: {
-      main: "#0386F4",
+      main: Primary.Main,
     },
-    background: { default: "rgb(237, 237, 237)" },
-    text: { 
-      primary: '#434343'
-    }
+    background: { default: "#EDEDED" },
+    text: {
+      primary: "#434343",
+    },
+  },
+  components: {
+    MuiTabs: {
+      styleOverrides: {
+        root: {
+          padding: "0 20px",
+          marginBottom: "20px",
+          minHeight: "auto",
+        },
+        indicator: {
+          display: "none",
+        },
+      },
+    },
+    MuiTab: {
+      styleOverrides: {
+        root: {
+          backgroundColor: Primary.Main,
+          color: "#FFF",
+          borderRadius: "3px",
+          padding: "10px 16px",
+          fontSize: "13px",
+          fontWeight: 600,
+          minHeight: "auto",
+        },
+      },
+    },
   },
 });

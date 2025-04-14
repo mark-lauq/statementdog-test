@@ -1,6 +1,5 @@
 import type { ReactNode } from "react";
-import { Paper, Box } from "@mui/material";
-import { CustomTabs, CustomTab } from "@/components/Tabs";
+import { Paper, Box, Tabs, Tab } from "@mui/material";
 
 export default function StockChartLayout({
   children,
@@ -9,9 +8,9 @@ export default function StockChartLayout({
 }) {
   return (
     <Paper sx={{ padding: "20px 0" }}>
-      <CustomTabs>
-        <CustomTab label="每月营收" />
-      </CustomTabs>
+      <Tabs value={false}>
+        <Tab label="每月营收" />
+      </Tabs>
       <Box sx={{ padding: "0 20px" }}>{children}</Box>
     </Paper>
   );
