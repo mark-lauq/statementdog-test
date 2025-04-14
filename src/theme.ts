@@ -4,6 +4,23 @@ import { createTheme } from "@mui/material";
 
 enum Primary {
   Main = "#0386F4",
+  Border = "#DCDFE2",
+}
+
+/**
+ * Custom variables definition
+ */
+declare module "@mui/material/styles" {
+  interface Theme {
+    table: {
+      border: string;
+    };
+  }
+  interface ThemeOptions {
+    table: {
+      border: string;
+    };
+  }
 }
 
 /**
@@ -26,6 +43,9 @@ export default createTheme({
       "Arial",
       "sans-serif",
     ].join(","),
+  },
+  table: {
+    border: "1px solid #DCDFE2",
   },
   palette: {
     primary: {
@@ -60,6 +80,11 @@ export default createTheme({
           fontWeight: 600,
           minHeight: "auto",
         },
+      },
+    },
+    MuiPaper: {
+      defaultProps: {
+        variant: "outlined",
       },
     },
   },

@@ -76,7 +76,7 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
     <TableContainer ref={tableContainerRef}>
       <Table
         aria-label="stock table"
-        sx={{
+        sx={(theme) => ({
           // Styled table row
           "& .MuiTableRow-root:nth-of-type(even)": {
             backgroundColor: "#FFF",
@@ -84,12 +84,12 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
           "& .MuiTableRow-root:nth-of-type(odd)": {
             backgroundColor: "#F6F8FA",
           },
-          // Styled table cell border
+          // Styled table cell
           "& .MuiTableCell-root": {
-            borderLeft: "1px solid #DCDFE2",
+            borderLeft: theme.table.border,
           },
           "& .MuiTableRow-root:first-child .MuiTableCell-root": {
-            borderTop: "1px solid #DCDFE2",
+            borderTop: theme.table.border,
             fontWeight: "bold",
           },
           // Make first column sticky
@@ -101,9 +101,9 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
             display: "block",
             marginRight: "6px",
             borderLeft: 0,
-            borderRight: "1px solid #DCDFE2",
+            borderRight: theme.table.border,
           },
-        }}
+        })}
       >
         <TableBody>
           <TableRow>
