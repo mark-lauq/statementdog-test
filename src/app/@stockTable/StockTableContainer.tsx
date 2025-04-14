@@ -94,6 +94,8 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
           // Styled table cell
           "& .MuiTableCell-root": {
             borderLeft: theme.table.border,
+            paddingTop: "12px",
+            paddingBottom: "12px",
             fontSize: 13,
             fontWeight: 400,
           },
