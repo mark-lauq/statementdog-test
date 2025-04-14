@@ -71,12 +71,12 @@ export default createTheme({
         root: {
           backgroundColor: Primary.Main,
           color: "#FFF",
-          borderRadius: 3,
+          borderRadius: '3px',
           padding: `10px ${Padding.X}px`,
-          fontSize: 13,
+          fontSize: '13px',
           fontWeight: 600,
           minHeight: "auto",
-          minWidth: "auto"
+          minWidth: "auto",
         },
       },
     },
@@ -86,7 +86,7 @@ export default createTheme({
       },
       styleOverrides: {
         root: {
-          borderRadius: 3,
+          borderRadius: '3px',
           padding: `${Padding.X}px`,
         },
       },
