@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v15-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
-import InitColorSchemeScript from "@mui/material/InitColorSchemeScript";
 import Container from "@mui/material/Container";
 import Stack from "@mui/material/Stack";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -58,11 +57,6 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        {/**
-         * Preventing SSR flickering
-         * https://mui.com/material-ui/customization/css-theme-variables/configuration/#preventing-ssr-flickering
-         */}
-        <InitColorSchemeScript attribute="class" />
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
