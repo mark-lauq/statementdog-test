@@ -1,5 +1,3 @@
-"use client";
-
 import { memo, type ReactNode } from "react";
 import TableCell from "@mui/material/TableCell";
 
@@ -9,7 +7,7 @@ export default memo(function StockTableCell({
   children: ReactNode;
 }) {
   return (
-    <TableCell sx={{ minWidth: 80 }} align="right">
+    <TableCell sx={{ minWidth: 80 }} align="right" suppressHydrationWarning>
       {children}
     </TableCell>
   );
