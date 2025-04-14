@@ -80,10 +80,11 @@ export default createTheme({
           backgroundColor: Primary.Main,
           color: "#FFF",
           borderRadius: 3,
-          padding: `10px ${Padding.X}`,
+          padding: `10px ${Padding.X}px`,
           fontSize: 13,
           fontWeight: 600,
           minHeight: "auto",
+          minWidth: "auto"
         },
       },
     },
@@ -94,7 +95,7 @@ export default createTheme({
       styleOverrides: {
         root: {
           borderRadius: 3,
-          padding: Padding.X,
+          padding: `${Padding.X}px`,
         },
       },
     },
