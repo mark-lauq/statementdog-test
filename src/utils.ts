@@ -16,13 +16,13 @@ export function getRecentDateString({ year }: { year: number }): string {
 }
 
 /**
- * Format revenue number to string with comma
+ * Format currency number to string with comma
  *
- * @param revenue number
+ * @param currency number
  * @returns string with comma
  */
-export function formatRevenue(revenue: number): string {
-  return new Intl.NumberFormat("en-US").format(Number(revenue.toFixed(2)));
+export function formatCurrency(currency: number): string {
+  return new Intl.NumberFormat("en-US").format(Number(currency.toFixed(2)));
 }
 
 /**
