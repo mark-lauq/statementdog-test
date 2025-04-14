@@ -67,7 +67,10 @@ export default function RootLayout({
         <AppRouterCacheProvider>
           <ThemeProvider theme={theme}>
             <CssBaseline />
-            <Container component="main" sx={{ marginTop: "20px" }}>
+            <Container
+              component="main"
+              sx={{ marginTop: "20px", width: "717px" }}
+            >
               <Stack direction="column" spacing="6px">
                 {stockInfo}
                 {stockChart}
