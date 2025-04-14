@@ -31,7 +31,6 @@ export function formatRevenue(revenue: number): string {
  * @param dateString `YYYY-MM-DD`
  * @returns `YYYYMM`
  */
-
 export function formatDateString(dateString: string): string {
   return dateString.replace("-", "").slice(0, 6);
 }
