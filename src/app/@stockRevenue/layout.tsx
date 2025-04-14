@@ -1,7 +1,7 @@
 import type { ReactNode } from "react";
 import { Paper, Tabs, Tab } from "@mui/material";
 
-export default function StockChartLayout({
+export default function StockRevenueLayout({
   children,
 }: {
   children: ReactNode;
