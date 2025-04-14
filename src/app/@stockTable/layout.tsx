@@ -7,7 +7,7 @@ export default function StockTableLayout({
   children: ReactNode;
 }) {
   return (
-    <Paper sx={{ padding: "20px 0" }}>
+    <Paper>
       <Tabs value={false}>
         <Tab label="详细数据" />
       </Tabs>

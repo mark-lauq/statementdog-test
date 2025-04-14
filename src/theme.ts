@@ -7,16 +7,22 @@ enum Primary {
   Border = "#DCDFE2",
 }
 
+enum Padding {
+  X = 16,
+}
+
 /**
  * Custom variables definition
  */
 declare module "@mui/material/styles" {
   interface Theme {
+    padding: typeof Padding;
     table: {
       border: string;
     };
   }
   interface ThemeOptions {
+    padding: typeof Padding;
     table: {
       border: string;
     };
@@ -44,6 +50,7 @@ export default createTheme({
       "sans-serif",
     ].join(","),
   },
+  padding: Padding,
   table: {
     border: "1px solid #DCDFE2",
   },
@@ -60,8 +67,6 @@ export default createTheme({
     MuiTabs: {
       styleOverrides: {
         root: {
-          padding: "0 20px",
-          marginBottom: "20px",
           minHeight: "auto",
         },
         indicator: {
@@ -74,9 +79,9 @@ export default createTheme({
         root: {
           backgroundColor: Primary.Main,
           color: "#FFF",
-          borderRadius: "3px",
-          padding: "10px 16px",
-          fontSize: "13px",
+          borderRadius: 3,
+          padding: `10px ${Padding.X}`,
+          fontSize: 13,
           fontWeight: 600,
           minHeight: "auto",
         },
@@ -85,6 +90,12 @@ export default createTheme({
     MuiPaper: {
       defaultProps: {
         variant: "outlined",
+      },
+      styleOverrides: {
+        root: {
+          borderRadius: 3,
+          padding: Padding.X,
+        },
       },
     },
   },
