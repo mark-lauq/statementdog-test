@@ -73,7 +73,14 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
   }, [tableContainerRef]);
 
   return (
-    <TableContainer ref={tableContainerRef}>
+    <TableContainer
+      ref={tableContainerRef}
+      sx={(theme) => ({
+        marginTop: "16px",
+        marginLeft: `-${theme.padding.X}px`,
+        width: `calc(100% + ${theme.padding.X * 2}px)`,
+      })}
+    >
       <Table
         aria-label="stock table"
         sx={(theme) => ({
@@ -87,10 +94,12 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
           // Styled table cell
           "& .MuiTableCell-root": {
             borderLeft: theme.table.border,
+            fontSize: 13,
+            fontWeight: 400,
           },
           "& .MuiTableRow-root:first-child .MuiTableCell-root": {
             borderTop: theme.table.border,
-            fontWeight: "bold",
+            fontWeight: 600,
           },
           // Make first column sticky
           "& .MuiTableCell-root:first-of-type": {
@@ -102,30 +111,25 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
             marginRight: "6px",
             borderLeft: 0,
             borderRight: theme.table.border,
+            fontWeight: 600,
           },
         })}
       >
         <TableBody>
           <TableRow>
-            <TableCell sx={{ minWidth: 60 }}>
-              <strong>年度月份</strong>
-            </TableCell>
+            <TableCell sx={{ minWidth: 60 }}>年度月份</TableCell>
             {dates.map((date, idx) => (
               <StockTableCell key={`${date}-${idx}`}>{date}</StockTableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ minWidth: 60 }}>
-              <strong>每月营收</strong>
-            </TableCell>
+            <TableCell sx={{ minWidth: 60 }}>每月营收</TableCell>
             {revenues.map((revenue, idx) => (
               <StockTableCell key={idx}>{revenue}</StockTableCell>
             ))}
           </TableRow>
           <TableRow>
-            <TableCell sx={{ minWidth: 160 }}>
-              <strong>单月营收年增率 (%)</strong>
-            </TableCell>
+            <TableCell sx={{ minWidth: 160 }}>单月营收年增率 (%)</TableCell>
             {rates.map((rate, idx) => (
               <StockTableCell key={idx}>{rate}</StockTableCell>
             ))}
