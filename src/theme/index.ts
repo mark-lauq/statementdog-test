@@ -1,6 +1,7 @@
 "use client";
 
 import { createTheme } from "@mui/material";
+import chartTheme from "./chart";
 
 enum Primary {
   Main = "#0386F4",
@@ -71,9 +72,9 @@ export default createTheme({
         root: {
           backgroundColor: Primary.Main,
           color: "#FFF",
-          borderRadius: '3px',
+          borderRadius: "3px",
           padding: `10px ${Padding.X}px`,
-          fontSize: '13px',
+          fontSize: "13px",
           fontWeight: 600,
           minHeight: "auto",
           minWidth: "auto",
@@ -86,10 +87,11 @@ export default createTheme({
       },
       styleOverrides: {
         root: {
-          borderRadius: '3px',
+          borderRadius: "3px",
           padding: `${Padding.X}px`,
         },
       },
     },
+    ...chartTheme,
   },
 });
