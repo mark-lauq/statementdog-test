@@ -25,6 +25,7 @@ export default function StockChart({ data }: { data: Data[] }) {
         ...chartTheme.MuiBarChart.defaultProps.leftAxis,
         label: "千元",
         sx: {
+          // 置顶左轴的单位 label
           "& .MuiChartsAxis-label > text": {
             transform: "translateY(-165px)",
           },
