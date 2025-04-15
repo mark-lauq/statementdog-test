@@ -8,7 +8,7 @@ import chartTheme, { ChartColor } from "@/theme/chart";
 export default function StockChart({ data }: { data: Data[] }) {
   return (
     <BarChart
-      dataset={data}
+      dataset={data.slice(12)}
       height={350}
       margin={{ top: 40, bottom: 30, left: 90, right: 10 }}
       sx={{ marginTop: "16px" }}
