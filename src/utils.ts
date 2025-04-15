@@ -26,11 +26,31 @@ export function formatCurrency(currency: number): string {
 }
 
 /**
- * Format date string to YYYYMM
- *
- * @param dateString `YYYY-MM-DD`
- * @returns `YYYYMM`
+ * Format date string to different formats
+ * 
+ * @param dateString Date string in format "YYYY-MM-DD"
+ * @param format Format type: "yyyy" | "yyyymm" | "yyyy/mm"
+ * @returns Formatted date string
+ * 
+ * @example
+ * formatDateString("2024-03-15", "yyyy") // "2024"
+ * formatDateString("2024-03-15", "yyyymm") // "202403"
+ * formatDateString("2024-03-15", "yyyy/mm") // "2024/03"
  */
-export function formatDateString(dateString: string): string {
-  return dateString.replace("-", "").slice(0, 6);
+export function formatDateString(
+  dateString: string,
+  format: "yyyy" | "yyyymm" | "yyyy/mm" = "yyyymm",
+): string {
+  const [yyyy, mm] = dateString.split("-");
+
+  switch (format) {
+    case "yyyy":
+      return yyyy;
+    case "yyyymm":
+      return yyyy + mm;
+    case "yyyy/mm":
+      return `${yyyy}/${mm}`;
+    default:
+      return yyyy;
+  }
 }
