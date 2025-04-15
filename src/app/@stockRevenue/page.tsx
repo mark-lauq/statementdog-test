@@ -1,7 +1,8 @@
 import { getData } from "@/libs/data";
+import StockChart from "./StockChart";
 
 export default async function StockRevenuePage() {
-  await getData();
+  const data = await getData();
 
-  return "Stock Revenue";
+  return <StockChart data={data} />;
 }

@@ -20,14 +20,20 @@ const chartTheme = {
           fontWeight: 600,
           color: ChartColor.AxisLabel,
         },
+        tickLabelStyle: {
+          fontSize: 13,
+        },
       },
       bottomAxis: {
         disableLine: true,
         disableTicks: true,
         labelStyle: {
-          fontSize: "12px",
+          fontSize: "13px",
           fontWeight: 400,
           color: ChartColor.AxisLabel,
+        },
+        tickLabelStyle: {
+          fontSize: "13px",
         },
       },
       slotProps: {
