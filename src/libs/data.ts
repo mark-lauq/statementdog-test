@@ -14,7 +14,7 @@ const searchParams = new URLSearchParams({
   token: API_TOKEN!,
   dataset: DATASET!,
   data_id: DATA_ID!,
-  start_date: getRecentDateString({ year: 5 }),
+  start_date: getRecentDateString({ year: 6 }),
 });
 
 export async function getData() {

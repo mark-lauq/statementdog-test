@@ -20,7 +20,7 @@ function calculateRate({
 }): string {
   const [yyyy, mm, dd] = date.split("-");
   const lastYearData = data.find(
-    (d) => (d.date = [Number(yyyy) - 1, mm, dd].join("-")),
+    (d) => d.date === [Number(yyyy) - 1, mm, dd].join("-"),
   );
 
   return lastYearData
@@ -51,7 +51,8 @@ export default function useStockData(data: Data[]) {
     const revenues: string[] = [];
     const rates: string[] = [];
 
-    for (const { date, revenue } of data) {
+    // 去掉最开始一年的数据（这些数据仅用于计算单月营收年增率）
+    for (const { date, revenue } of data.slice(12)) {
       dates.push(formatDateString(date));
       revenues.push(formatCurrency(revenue));
       rates.push(calculateRate({ data, date, revenue }));
