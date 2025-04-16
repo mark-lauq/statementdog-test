@@ -16,7 +16,8 @@ const getSearchParams = (recentYear: number) =>
 
 export async function getData(recentYear: number) {
   const response = await fetch(
-    `${process.env.NEXT_PUBLIC_API_URL}?${getSearchParams(recentYear).toString()}`,
+    // 多取1年数据，用于获取去年同月营收总和
+    `${process.env.NEXT_PUBLIC_API_URL}?${getSearchParams(recentYear + 1).toString()}`,
     {
       next: {
         // Cached data at most every hour
