@@ -1,23 +1,25 @@
 "use client";
 
-import { Paper, Tabs, Tab } from "@mui/material";
+import { Stack, Paper, Tabs, Tab } from "@mui/material";
 import useFetchData from "@/hooks/useFetchData";
-import StockTableContainer from "./StockTableContainer";
 import Loading from "@/components/Loading";
+import StockTableContainer from "./StockTableContainer";
 
 export default function StockTablePage() {
   const { data } = useFetchData();
 
   return (
-    <Paper>
+    <Stack component={Paper} direction="column" sx={{ height: 220 }}>
       <Tabs value={false}>
         <Tab label="详细数据" />
       </Tabs>
-      {!data ? (
-        <Loading>Stock Table Loading...</Loading>
-      ) : (
-        <StockTableContainer data={data} />
-      )}
-    </Paper>
+      <Stack direction="column" justifyContent="center" flex="auto">
+        {!data ? (
+          <Loading>Stock Table Loading...</Loading>
+        ) : (
+          <StockTableContainer data={data} />
+        )}
+      </Stack>
+    </Stack>
   );
 }
