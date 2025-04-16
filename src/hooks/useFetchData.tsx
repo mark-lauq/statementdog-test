@@ -22,10 +22,12 @@ import { getData, type Data } from "@/libs/data";
  */
 export default function useFetchData() {
   const { recentYear } = use(AppContext)!;
-  const [data, setData] = useState<Data[] | null>(null);
+  const [data, setData] = useState<Data[] | null>();
 
   useEffect(() => {
     let ignore = false;
+
+    setData(null);
 
     async function fetchData() {
       const data = await getData(recentYear);
