@@ -51,7 +51,9 @@ function calculateRate(
  * {
  *   dates: ["202401", "202402", ...]
  *   revenues: [1234567, 2345678, ...]
- *   rates: ["10%", "20%", ...]
+ *   rates:
+ *    if rateFormat is `percent`: ["10%", "20%", ...]
+ *    if rateFormat is `number`: [10, 20, ...]
  * }
  */
 export default function useStockData(
