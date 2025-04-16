@@ -1,5 +1,6 @@
 "use client";
 
+import { memo } from "react";
 import {
   ResponsiveChartContainer,
   ChartsGrid,
@@ -21,7 +22,7 @@ enum AxisId {
   RateAxis = "RateAxis",
 }
 
-export default function StockChart({ data }: { data: Data[] }) {
+export default memo(function StockChart({ data }: { data: Data[] }) {
   const { dates, revenues, rates } = useStockData(data, {
     rateFormat: "number",
   });
@@ -86,4 +87,4 @@ export default function StockChart({ data }: { data: Data[] }) {
       <ChartsAxisHighlight x="line" />
     </ResponsiveChartContainer>
   );
-}
+});
