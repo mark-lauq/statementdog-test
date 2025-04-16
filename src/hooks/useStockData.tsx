@@ -35,7 +35,7 @@ function calculateRate(
       ? (revenue / lastYearData.revenue - 1).toLocaleString("en", {
           style: "percent",
         })
-      : (revenue / lastYearData.revenue - 1) * 100;
+      : Math.trunc((revenue / lastYearData.revenue - 1) * 100);
 }
 
 /**

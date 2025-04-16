@@ -3,6 +3,7 @@ import type {} from "@mui/x-charts/themeAugmentation";
 export enum ChartColor {
   AxisLabel = "#545454",
   Bar = "#E8AF00",
+  Line = '#CB4B4B',
 }
 
 const chartTheme = {
@@ -48,7 +49,7 @@ const chartTheme = {
   MuiLineElement: {
     styleOverrides: {
       root: {
-        stroke: "rgb(203,75,75)",
+        stroke: ChartColor.Line,
       },
     },
   },
@@ -84,6 +85,26 @@ const chartTheme = {
         // 单位 label 置顶
         "& .MuiChartsAxis-label > text": {
           transform: "translateY(-165px)",
+        },
+      },
+    },
+  },
+  MuiChartsAxisHighlight: {
+    styleOverrides: {
+      root: {
+        stroke: "#CCC",
+      },
+    },
+  },
+  MuiMarkElement: {
+    styleOverrides: {
+      highlighted: {
+        display: 'none',
+        "&.MuiMarkElement-highlighted": {
+          display: 'none',
+          fill: "red",
+          stroke: "red",
+          background: "red",
         },
       },
     },

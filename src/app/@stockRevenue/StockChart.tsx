@@ -5,12 +5,15 @@ import {
   ChartsGrid,
   BarPlot,
   LinePlot,
+  LineHighlightPlot,
   ChartsXAxis,
   ChartsYAxis,
+  ChartsAxisHighlight,
 } from "@mui/x-charts";
 import type { Data } from "@/libs/data";
-import { formatCurrency } from "@/utils";
 import useStockData from "@/hooks/useStockData";
+import { ChartColor } from "@/theme/chart";
+import AxisTooltip from "./AxisTooltip";
 
 enum AxisId {
   DateAxis = "DateAxis",
@@ -27,19 +30,24 @@ export default function StockChart({ data }: { data: Data[] }) {
     <ResponsiveChartContainer
       height={350}
       margin={{ top: 40, bottom: 30, left: 90, right: 25 }}
-      sx={{ marginTop: "16px" }}
+      sx={{
+        marginTop: "16px",
+      }}
       series={[
         {
           yAxisId: AxisId.RevenueAxis,
-          label: "每月营收",
+          label: "每月营收:",
           type: "bar",
           data: revenues,
-          valueFormatter: (value) => (value ? formatCurrency(value) : ""),
+          color: ChartColor.Bar,
         },
         {
           yAxisId: AxisId.RateAxis,
+          label: "单月营收年增率:",
           type: "line",
           data: rates as number[],
+          color: ChartColor.Line,
+          valueFormatter: (value) => `${value}%`,
         },
       ]}
       xAxis={[
@@ -69,10 +77,13 @@ export default function StockChart({ data }: { data: Data[] }) {
     >
       <BarPlot />
       <LinePlot />
+      <LineHighlightPlot />
+      <AxisTooltip />
       <ChartsGrid horizontal vertical />
       <ChartsXAxis axisId={AxisId.DateAxis} position="bottom" />
       <ChartsYAxis axisId={AxisId.RevenueAxis} position="left" />
       <ChartsYAxis axisId={AxisId.RateAxis} position="right" />
+      <ChartsAxisHighlight x="line" />
     </ResponsiveChartContainer>
   );
 }
