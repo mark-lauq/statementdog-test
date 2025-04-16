@@ -1,16 +1,23 @@
-import { Paper, Tabs, Tab } from "@mui/material";
-import { getData } from "@/libs/data";
-import StockTableContainer from "./StockTableContainer";
+"use client";
 
-export default async function StockTablePage() {
-  const data = await getData();
+import { Paper, Tabs, Tab } from "@mui/material";
+import useFetchData from "@/hooks/useFetchData";
+import StockTableContainer from "./StockTableContainer";
+import Loading from "@/components/Loading";
+
+export default function StockTablePage() {
+  const { data } = useFetchData();
 
   return (
     <Paper>
       <Tabs value={false}>
         <Tab label="详细数据" />
       </Tabs>
-      <StockTableContainer data={data} />
+      {!data ? (
+        <Loading>Stock Table Loading...</Loading>
+      ) : (
+        <StockTableContainer data={data} />
+      )}
     </Paper>
   );
 }
