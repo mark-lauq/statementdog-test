@@ -92,6 +92,6 @@ export default createTheme({
         },
       },
     },
-    ...chartTheme,
+    ...chartTheme    
   },
 });

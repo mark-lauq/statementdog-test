@@ -10,11 +10,14 @@ import {
 } from "@mui/material";
 import type { Data } from "@/libs/data";
 import useStockData from "@/hooks/useStockData";
+import { formatCurrency } from "@/utils";
 import StockTableCell from "./StockTableCell";
 
 export default memo(function StockTableContainer({ data }: { data: Data[] }) {
   const tableContainerRef = useRef<HTMLDivElement>(null);
-  const { dates, revenues, rates } = useStockData(data);
+  const { dates, revenues, rates } = useStockData(data, {
+    rateFormat: "percent",
+  });
 
   // Scroll to right
   useEffect(() => {
@@ -87,7 +90,9 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
           <TableRow>
             <TableCell sx={{ minWidth: 60 }}>每月营收</TableCell>
             {revenues.map((revenue, idx) => (
-              <StockTableCell key={idx}>{revenue}</StockTableCell>
+              <StockTableCell key={idx}>
+                {formatCurrency(revenue)}
+              </StockTableCell>
             ))}
           </TableRow>
           <TableRow>

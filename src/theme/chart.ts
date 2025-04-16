@@ -8,34 +8,6 @@ export enum ChartColor {
 const chartTheme = {
   MuiBarChart: {
     defaultProps: {
-      grid: {
-        horizontal: true,
-        vertical: true,
-      },
-      leftAxis: {
-        disableLine: true,
-        disableTicks: true,
-        labelStyle: {
-          fontSize: "13px",
-          fontWeight: 600,
-          color: ChartColor.AxisLabel,
-        },
-        tickLabelStyle: {
-          fontSize: 13,
-        },
-      },
-      bottomAxis: {
-        disableLine: true,
-        disableTicks: true,
-        labelStyle: {
-          fontSize: "13px",
-          fontWeight: 400,
-          color: ChartColor.AxisLabel,
-        },
-        tickLabelStyle: {
-          fontSize: "13px",
-        },
-      },
       slotProps: {
         legend: {
           position: {
@@ -69,6 +41,49 @@ const chartTheme = {
       root: {
         "& .MuiChartsLegend-mark": {
           fill: ChartColor.Bar,
+        },
+      },
+    },
+  },
+  MuiLineElement: {
+    styleOverrides: {
+      root: {
+        stroke: "rgb(203,75,75)",
+      },
+    },
+  },
+  MuiChartsXAxis: {
+    defaultProps: {
+      disableLine: true,
+      disableTicks: true,
+      labelStyle: {
+        fontSize: "13px",
+        fontWeight: 400,
+        color: ChartColor.AxisLabel,
+      },
+      tickLabelStyle: {
+        fontSize: "13px",
+      },
+    },
+  },
+  MuiChartsYAxis: {
+    defaultProps: {
+      disableLine: true,
+      disableTicks: true,
+      labelStyle: {
+        fontSize: "13px",
+        fontWeight: 600,
+        color: ChartColor.AxisLabel,
+      },
+      tickLabelStyle: {
+        fontSize: 13,
+      },
+    },
+    styleOverrides: {
+      root: {
+        // 单位 label 置顶
+        "& .MuiChartsAxis-label > text": {
+          transform: "translateY(-165px)",
         },
       },
     },
