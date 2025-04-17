@@ -18,11 +18,7 @@ export default function StockRevenuePage() {
         <StockFilter />
       </Stack>
       <Stack direction="column" justifyContent="center" flex="auto">
-        {!data ? (
-          <Loading>Stock Chart Loading...</Loading>
-        ) : (
-          <StockChart data={data} />
-        )}
+        {!data ? <Loading /> : <StockChart data={data} />}
       </Stack>
     </Stack>
   );

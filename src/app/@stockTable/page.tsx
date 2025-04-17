@@ -14,11 +14,7 @@ export default function StockTablePage() {
         <Tab label="详细数据" />
       </Tabs>
       <Stack direction="column" justifyContent="center" flex="auto">
-        {!data ? (
-          <Loading>Stock Table Loading...</Loading>
-        ) : (
-          <StockTableContainer data={data} />
-        )}
+        {!data ? <Loading /> : <StockTableContainer data={data} />}
       </Stack>
     </Stack>
   );
