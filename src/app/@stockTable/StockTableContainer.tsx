@@ -72,10 +72,7 @@ export default memo(function StockTableContainer({ data }: { data: Data[] }) {
             left: 0,
             zIndex: 1,
             backgroundColor: "inherit",
-            display: "block",
-            marginRight: "6px",
             borderLeft: 0,
-            borderRight: theme.table.border,
             fontWeight: 600,
           },
         })}
