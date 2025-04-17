@@ -92,6 +92,25 @@ export default createTheme({
         },
       },
     },
-    ...chartTheme
+    MuiSelect: {
+      styleOverrides: {
+        root: {
+          background: Primary.Main,
+          minWidth: "70px",
+          height: "38px",
+          color: "#FFF",
+          fontSize: "13px",
+          fontWeight: 600,
+          border: "none",
+          "& .MuiSelect-iconOutlined": {
+            color: "#FFF",
+          },
+          "& .MuiOutlinedInput-notchedOutline": {
+            border: "none",
+          },
+        },
+      },
+    },
+    ...chartTheme,
   },
 });

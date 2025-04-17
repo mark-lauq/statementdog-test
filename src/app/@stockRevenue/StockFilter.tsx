@@ -20,9 +20,14 @@ export default function StockFilter() {
 
   return (
     <FormControl>
-      <Select size="small" value={recentYear} onChange={handleChange}>
+      <Select
+        variant="outlined"
+        size="small"
+        value={recentYear}
+        onChange={handleChange}
+      >
         {OPTIONS.map((opt) => (
-          <MenuItem key={opt} value={opt}>{`近${opt}年`}</MenuItem>
+          <MenuItem key={opt} value={opt}>{`近 ${opt} 年`}</MenuItem>
         ))}
       </Select>
     </FormControl>
