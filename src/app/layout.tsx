@@ -39,7 +39,7 @@ const PingFangTC = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "StatementDog Test",
+  title: "Stock Monthly Revenue",
 };
 
 export default function RootLayout({
